@@ -274,6 +274,7 @@ Blob service and containers to deploy.
 - Default:
   ```Bicep
   {
+      containerDeleteRetentionPolicyDays: 7
       containers: [
         {
           name: 'default'
@@ -309,6 +310,7 @@ Blob service and containers to deploy.
         }
       ]
       deleteRetentionPolicyAllowPermanentDelete: true
+      deleteRetentionPolicyDays: 6
       deleteRetentionPolicyEnabled: true
   }
   ```
@@ -438,7 +440,7 @@ Provide 'true' to enable Key Vault's purge protection feature.
 
 - Required: No
 - Type: bool
-- Default: `True`
+- Default: `False`
 
 ### Parameter: `enableRbacAuthorization`
 

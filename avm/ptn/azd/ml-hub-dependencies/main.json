@@ -6,7 +6,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.28.1.47646",
-      "templateHash": "17728760270087349193"
+      "templateHash": "3028347656831894808"
     },
     "name": "Azure Machine Learning Dependencies",
     "description": "Creates all the dependencies required for a Machine Learning Service.",
@@ -184,6 +184,8 @@
           }
         ],
         "deleteRetentionPolicyEnabled": true,
+        "containerDeleteRetentionPolicyDays": 7,
+        "deleteRetentionPolicyDays": 6,
         "deleteRetentionPolicyAllowPermanentDelete": true
       },
       "metadata": {
@@ -320,7 +322,7 @@
     },
     "enablePurgeProtection": {
       "type": "bool",
-      "defaultValue": true,
+      "defaultValue": false,
       "metadata": {
         "description": "Optional. Provide 'true' to enable Key Vault's purge protection feature."
       }
