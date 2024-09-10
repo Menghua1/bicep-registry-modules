@@ -93,7 +93,7 @@ param blobServices object =  {
       ]
     }
   ]
-  deleteRetentionPolicyEnabled: false
+  deleteRetentionPolicyEnabled: true
   deleteRetentionPolicyAllowPermanentDelete: true
 }
 
@@ -169,7 +169,7 @@ param enableVaultForDeployment bool = false
 param enableVaultForTemplateDeployment bool = false
 
 @description('Optional. Provide \'true\' to enable Key Vault\'s purge protection feature.')
-param enablePurgeProtection bool = false
+param enablePurgeProtection bool = true
 
 @description('Optional. Specifies the SKU for the vault.')
 @allowed([

@@ -309,7 +309,7 @@ Blob service and containers to deploy.
         }
       ]
       deleteRetentionPolicyAllowPermanentDelete: true
-      deleteRetentionPolicyEnabled: false
+      deleteRetentionPolicyEnabled: true
   }
   ```
 
@@ -438,7 +438,7 @@ Provide 'true' to enable Key Vault's purge protection feature.
 
 - Required: No
 - Type: bool
-- Default: `False`
+- Default: `True`
 
 ### Parameter: `enableRbacAuthorization`
 
