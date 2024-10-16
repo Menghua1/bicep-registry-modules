@@ -38,7 +38,6 @@ module nestedDependencies 'dependencies.bicep' = {
     location: resourceLocation
     appName: 'dep-${namePrefix}-app-${serviceShort}'
     appServicePlanName: 'dep-${namePrefix}-apps-${serviceShort}'
-    logAnalyticsWorkspaceName: 'dep-${namePrefix}-law-${serviceShort}'
   }
 }
 
@@ -54,7 +53,6 @@ module testDeployment '../../../main.bicep' = [
     params: {
       name: 'mc${uniqueString(deployment().name)}-${serviceShort}'
       containerRegistryName: '${uniqueString(deployment().name, resourceLocation)}testcontainerregistry${serviceShort}'
-      logAnalyticsName: nestedDependencies.outputs.logAnalyticsWorkspaceResourceId
       keyVaultName: 'kv${uniqueString(deployment().name)}-${serviceShort}'
       location: resourceLocation
       principalId: nestedDependencies.outputs.identityPrincipalId
