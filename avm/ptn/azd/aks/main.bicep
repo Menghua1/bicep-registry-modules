@@ -86,7 +86,7 @@ param sshPublicKey string?
 param appGatewayResourceId string?
 
 @description('Optional. Resource ID of the monitoring log analytics workspace.')
-param monitoringWorkspaceResourceId string?
+param monitoringWorkspaceResourceId string = ''
 
 @description('Optional. Whether or not public network access is allowed for this resource. For security reasons it should be disabled. If not specified, it will be disabled by default if private endpoints are set and networkRuleSetIpRules are not set.  Note, requires the \'acrSku\' to be \'Premium\'.')
 @allowed([
