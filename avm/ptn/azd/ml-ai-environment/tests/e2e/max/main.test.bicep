@@ -48,7 +48,7 @@ module testDeployment '../../../main.bicep' = [
       cognitiveServicesName: '${namePrefix}${serviceShort}cs001'
       projectName: '${namePrefix}${serviceShort}pro001'
       storageAccountName: '${namePrefix}${serviceShort}sta001'
-      userAssignedtName: '${namePrefix}${serviceShort}ua001'
+      userAssignedName: '${namePrefix}${serviceShort}ua001'
       containerRegistryName: '${namePrefix}${serviceShort}cr001'
       applicationInsightsName: '${namePrefix}${serviceShort}appin001'
       logAnalyticsName: '${namePrefix}${serviceShort}la001'

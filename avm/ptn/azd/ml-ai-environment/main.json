@@ -5,8 +5,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.32.4.45862",
-      "templateHash": "3964144045768197576"
+      "version": "0.35.1.17967",
+      "templateHash": "12557736702099019151"
     },
     "name": "Azd Azure Machine Learning Environment",
     "description": "Create Azure Machine Learning workspaces of type 'Hub' and 'Project' and their required dependencies.\n\n**Note:** This module is not intended for broad, generic use, as it was designed to cater for the requirements of the AZD CLI product. Feature requests and bug fix requests are welcome if they support the development of the AZD CLI but may not be incorporated if they aim to make this module more generic than what it needs to be for its primary use case."
@@ -102,19 +102,19 @@
     "openAiConnectionName": {
       "type": "string",
       "metadata": {
-        "description": "Optional. The Open AI connection name."
+        "description": "Required. The Open AI connection name."
       }
     },
     "searchConnectionName": {
       "type": "string",
       "metadata": {
-        "description": "Optional. The Azure Search connection name."
+        "description": "Required. The Azure Search connection name."
       }
     },
-    "userAssignedtName": {
+    "userAssignedName": {
       "type": "string",
       "metadata": {
-        "description": "Optional. The User Assigned Identity resource name."
+        "description": "Required. The User Assigned Identity resource name."
       }
     },
     "replicaCount": {
@@ -202,12 +202,11 @@
           "metadata": {
             "_generator": {
               "name": "bicep",
-              "version": "0.30.23.60470",
-              "templateHash": "11541059920638838548"
+              "version": "0.35.1.17967",
+              "templateHash": "2586345826405987045"
             },
             "name": "Azd Azure Machine Learning Dependencies",
-            "description": "Creates all the dependencies required for a Machine Learning Service.\n\n**Note:** This module is not intended for broad, generic use, as it was designed to cater for the requirements of the AZD CLI product. Feature requests and bug fix requests are welcome if they support the development of the AZD CLI but may not be incorporated if they aim to make this module more generic than what it needs to be for its primary use case.",
-            "owner": "Azure/module-maintainers"
+            "description": "Creates all the dependencies required for a Machine Learning Service.\n\n**Note:** This module is not intended for broad, generic use, as it was designed to cater for the requirements of the AZD CLI product. Feature requests and bug fix requests are welcome if they support the development of the AZD CLI but may not be incorporated if they aim to make this module more generic than what it needs to be for its primary use case."
           },
           "definitions": {
             "managedIdentitiesType": {
@@ -680,7 +679,7 @@
               "condition": "[parameters('enableTelemetry')]",
               "type": "Microsoft.Resources/deployments",
               "apiVersion": "2024-03-01",
-              "name": "[format('46d3xbcp.ptn.azd-mlhubdependencies.{0}.{1}', replace('0.1.0', '.', '-'), substring(uniqueString(deployment().name, parameters('location')), 0, 4))]",
+              "name": "[format('46d3xbcp.ptn.azd-mlhubdependencies.{0}.{1}', replace('-..--..-', '.', '-'), substring(uniqueString(deployment().name, parameters('location')), 0, 4))]",
               "properties": {
                 "mode": "Incremental",
                 "template": {
@@ -18985,8 +18984,8 @@
           "metadata": {
             "_generator": {
               "name": "bicep",
-              "version": "0.32.4.45862",
-              "templateHash": "18307563031871806132"
+              "version": "0.35.1.17967",
+              "templateHash": "6872055084136778573"
             }
           },
           "parameters": {
@@ -22946,7 +22945,7 @@
             "value": "[reference('hubDependencies').outputs.keyVaultName.value]"
           },
           "userAssignedName": {
-            "value": "[parameters('userAssignedtName')]"
+            "value": "[parameters('userAssignedName')]"
           },
           "enableTelemetry": {
             "value": "[parameters('enableTelemetry')]"
@@ -22959,12 +22958,11 @@
           "metadata": {
             "_generator": {
               "name": "bicep",
-              "version": "0.30.23.60470",
-              "templateHash": "17734235406639655521"
+              "version": "0.32.4.45862",
+              "templateHash": "10155781664177707087"
             },
             "name": "Azd Machine Learning workspace",
-            "description": "Create a machine learning workspace, configure the key vault access policy and assign role permissions to the machine learning instance.\n\n**Note:** This module is not intended for broad, generic use, as it was designed to cater for the requirements of the AZD CLI product. Feature requests and bug fix requests are welcome if they support the development of the AZD CLI but may not be incorporated if they aim to make this module more generic than what it needs to be for its primary use case.",
-            "owner": "Azure/module-maintainers"
+            "description": "Create a machine learning workspace, configure the key vault access policy and assign role permissions to the machine learning instance.\n\n**Note:** This module is not intended for broad, generic use, as it was designed to cater for the requirements of the AZD CLI product. Feature requests and bug fix requests are welcome if they support the development of the AZD CLI but may not be incorporated if they aim to make this module more generic than what it needs to be for its primary use case."
           },
           "definitions": {
             "managedIdentitiesType": {
@@ -23121,7 +23119,6 @@
                 ]
               },
               "dependsOn": [
-                "keyVault",
                 "project"
               ]
             },
@@ -23129,7 +23126,7 @@
               "condition": "[parameters('enableTelemetry')]",
               "type": "Microsoft.Resources/deployments",
               "apiVersion": "2024-03-01",
-              "name": "[format('46d3xbcp.ptn.azd-mlproject.{0}.{1}', replace('0.1.1', '.', '-'), substring(uniqueString(deployment().name, parameters('location')), 0, 4))]",
+              "name": "[format('46d3xbcp.ptn.azd-mlproject.{0}.{1}', replace('0.1.3', '.', '-'), substring(uniqueString(deployment().name, parameters('location')), 0, 4))]",
               "properties": {
                 "mode": "Incremental",
                 "template": {

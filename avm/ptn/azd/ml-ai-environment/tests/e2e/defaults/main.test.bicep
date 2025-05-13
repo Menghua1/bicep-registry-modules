@@ -47,7 +47,7 @@ module testDeployment '../../../main.bicep' = [
       storageAccountName: '${namePrefix}${serviceShort}sa001'
       hubName: '${namePrefix}${serviceShort}hub001'
       projectName: '${namePrefix}${serviceShort}pro001'
-      userAssignedtName: '${namePrefix}${serviceShort}ua001'
+      userAssignedName: '${namePrefix}${serviceShort}ua001'
       cognitiveServicesName: '${namePrefix}${serviceShort}cs001'
       openAiConnectionName: '${namePrefix}${serviceShort}ai001-connection'
       searchConnectionName: '${namePrefix}${serviceShort}search001-connection'

@@ -50,14 +50,14 @@ param cognitiveServicesDeployments array = []
 @description('Condition. The Azure Search resource name. Required if the parameter searchServiceName is not empty.')
 param searchServiceName string = ''
 
-@description('Optional. The Open AI connection name.')
+@description('Required. The Open AI connection name.')
 param openAiConnectionName string
 
-@description('Optional. The Azure Search connection name.')
+@description('Required. The Azure Search connection name.')
 param searchConnectionName string
 
-@description('Optional. The User Assigned Identity resource name.')
-param userAssignedtName string
+@description('Required. The User Assigned Identity resource name.')
+param userAssignedName string
 
 @description('Optional. The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs, or between 1 and 3 inclusive for basic SKU.')
 @minValue(1)
@@ -87,7 +87,7 @@ resource avmTelemetry 'Microsoft.Resources/deployments@2024-03-01' = if (enableT
   }
 }
 
-module hubDependencies 'br/public:avm/ptn/azd/ml-hub-dependencies:0.1.0' = {
+module hubDependencies '../ml-hub-dependencies/main.bicep' = {
   name: '${uniqueString(deployment().name, location)}-mlHubDependenciesDeployment'
   params: {
     location: location
@@ -122,13 +122,13 @@ module hub './modules/hub.bicep' = {
   }
 }
 
-module project 'br/public:avm/ptn/azd/ml-project:0.1.1' = {
+module project 'br/public:avm/ptn/azd/ml-project:0.1.3' = {
   name: '${uniqueString(deployment().name, location)}-project'
   params: {
     name: projectName
     hubResourceId: hub.outputs.resourceId
     keyVaultName: hubDependencies.outputs.keyVaultName
-    userAssignedName: userAssignedtName
+    userAssignedName: userAssignedName
     enableTelemetry: enableTelemetry
   }
 }

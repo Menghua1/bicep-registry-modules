@@ -101,7 +101,7 @@ module mlAiEnvironment 'br/public:avm/ptn/azd/ml-ai-environment:<version>' = {
     projectName: 'maeminpro001'
     searchConnectionName: 'maeminsearch001-connection'
     storageAccountName: 'maeminsa001'
-    userAssignedtName: 'maeminua001'
+    userAssignedName: 'maeminua001'
     // Non-required parameters
     location: '<location>'
   }
@@ -142,7 +142,7 @@ module mlAiEnvironment 'br/public:avm/ptn/azd/ml-ai-environment:<version>' = {
     "storageAccountName": {
       "value": "maeminsa001"
     },
-    "userAssignedtName": {
+    "userAssignedName": {
       "value": "maeminua001"
     },
     // Non-required parameters
@@ -171,7 +171,7 @@ param openAiConnectionName = 'maeminai001-connection'
 param projectName = 'maeminpro001'
 param searchConnectionName = 'maeminsearch001-connection'
 param storageAccountName = 'maeminsa001'
-param userAssignedtName = 'maeminua001'
+param userAssignedName = 'maeminua001'
 // Non-required parameters
 param location = '<location>'
 ```
@@ -200,7 +200,7 @@ module mlAiEnvironment 'br/public:avm/ptn/azd/ml-ai-environment:<version>' = {
     projectName: 'maemaxpro001'
     searchConnectionName: 'maemaxsearch001-connection'
     storageAccountName: 'maemaxsta001'
-    userAssignedtName: 'maemaxua001'
+    userAssignedName: 'maemaxua001'
     // Non-required parameters
     applicationInsightsName: 'maemaxappin001'
     cognitiveServicesDeployments: [
@@ -259,7 +259,7 @@ module mlAiEnvironment 'br/public:avm/ptn/azd/ml-ai-environment:<version>' = {
     "storageAccountName": {
       "value": "maemaxsta001"
     },
-    "userAssignedtName": {
+    "userAssignedName": {
       "value": "maemaxua001"
     },
     // Non-required parameters
@@ -316,7 +316,7 @@ param openAiConnectionName = 'maemaxai001-connection'
 param projectName = 'maemaxpro001'
 param searchConnectionName = 'maemaxsearch001-connection'
 param storageAccountName = 'maemaxsta001'
-param userAssignedtName = 'maemaxua001'
+param userAssignedName = 'maemaxua001'
 // Non-required parameters
 param applicationInsightsName = 'maemaxappin001'
 param cognitiveServicesDeployments = [
@@ -351,8 +351,11 @@ param searchServiceName = 'maemaxsearch001'
 | [`cognitiveServicesName`](#parameter-cognitiveservicesname) | string | The Cognitive Services name. |
 | [`hubName`](#parameter-hubname) | string | The AI Studio Hub Resource name. |
 | [`keyVaultName`](#parameter-keyvaultname) | string | The Key Vault resource name. |
+| [`openAiConnectionName`](#parameter-openaiconnectionname) | string | The Open AI connection name. |
 | [`projectName`](#parameter-projectname) | string | The AI Project resource name. |
+| [`searchConnectionName`](#parameter-searchconnectionname) | string | The Azure Search connection name. |
 | [`storageAccountName`](#parameter-storageaccountname) | string | The Storage Account resource name. |
+| [`userAssignedName`](#parameter-userassignedname) | string | The User Assigned Identity resource name. |
 
 **Optional parameters**
 
@@ -364,11 +367,8 @@ param searchServiceName = 'maemaxsearch001'
 | [`enableTelemetry`](#parameter-enabletelemetry) | bool | Enable/Disable usage telemetry for module. |
 | [`location`](#parameter-location) | string | Location for all Resources. |
 | [`logAnalyticsName`](#parameter-loganalyticsname) | string | The Log Analytics resource name. |
-| [`openAiConnectionName`](#parameter-openaiconnectionname) | string | The Open AI connection name. |
 | [`replicaCount`](#parameter-replicacount) | int | The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs, or between 1 and 3 inclusive for basic SKU. |
-| [`searchConnectionName`](#parameter-searchconnectionname) | string | The Azure Search connection name. |
 | [`tags`](#parameter-tags) | object | Tags of the resource. |
-| [`userAssignedtName`](#parameter-userassignedtname) | string | The User Assigned Identity resource name. |
 
 **Condition parameters**
 
@@ -397,6 +397,13 @@ The Key Vault resource name.
 - Required: Yes
 - Type: string
 
+### Parameter: `openAiConnectionName`
+
+The Open AI connection name.
+
+- Required: Yes
+- Type: string
+
 ### Parameter: `projectName`
 
 The AI Project resource name.
@@ -404,9 +411,23 @@ The AI Project resource name.
 - Required: Yes
 - Type: string
 
+### Parameter: `searchConnectionName`
+
+The Azure Search connection name.
+
+- Required: Yes
+- Type: string
+
 ### Parameter: `storageAccountName`
 
 The Storage Account resource name.
+
+- Required: Yes
+- Type: string
+
+### Parameter: `userAssignedName`
+
+The User Assigned Identity resource name.
 
 - Required: Yes
 - Type: string
@@ -459,13 +480,6 @@ The Log Analytics resource name.
 - Type: string
 - Default: `''`
 
-### Parameter: `openAiConnectionName`
-
-The Open AI connection name.
-
-- Required: Yes
-- Type: string
-
 ### Parameter: `replicaCount`
 
 The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs, or between 1 and 3 inclusive for basic SKU.
@@ -475,13 +489,6 @@ The number of replicas in the search service. If specified, it must be a value b
 - Default: `1`
 - MinValue: 1
 - MaxValue: 12
-
-### Parameter: `searchConnectionName`
-
-The Azure Search connection name.
-
-- Required: Yes
-- Type: string
 
 ### Parameter: `tags`
 
@@ -496,13 +503,6 @@ Tags of the resource.
       "key2": "value2"
   }
   ```
-
-### Parameter: `userAssignedtName`
-
-The User Assigned Identity resource name.
-
-- Required: Yes
-- Type: string
 
 ### Parameter: `searchServiceName`
 
@@ -539,9 +539,16 @@ This section gives you an overview of all local-referenced module files (i.e., o
 
 | Reference | Type |
 | :-- | :-- |
-| `br/public:avm/ptn/azd/ml-hub-dependencies:0.1.0` | Remote reference |
-| `br/public:avm/ptn/azd/ml-project:0.1.1` | Remote reference |
+| `avm/ptn/azd/ml-hub-dependencies` | Local reference |
+| `br/public:avm/ptn/azd/insights-dashboard:0.1.0` | Remote reference |
+| `br/public:avm/ptn/azd/ml-project:0.1.3` | Remote reference |
+| `br/public:avm/res/cognitive-services/account:0.7.0` | Remote reference |
+| `br/public:avm/res/container-registry/registry:0.4.0` | Remote reference |
+| `br/public:avm/res/key-vault/vault:0.7.1` | Remote reference |
 | `br/public:avm/res/machine-learning-services/workspace:0.8.1` | Remote reference |
+| `br/public:avm/res/operational-insights/workspace:0.6.0` | Remote reference |
+| `br/public:avm/res/search/search-service:0.6.0` | Remote reference |
+| `br/public:avm/res/storage/storage-account:0.9.1` | Remote reference |
 
 ## Data Collection
 
