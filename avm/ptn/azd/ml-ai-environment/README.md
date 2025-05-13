@@ -364,6 +364,7 @@ param searchServiceName = 'maemaxsearch001'
 | :-- | :-- | :-- |
 | [`applicationInsightsName`](#parameter-applicationinsightsname) | string | The Application Insights resource name. |
 | [`cognitiveServicesDeployments`](#parameter-cognitiveservicesdeployments) | array | Array of deployments about cognitive service accounts to create. |
+| [`cognitiveServicesKind`](#parameter-cognitiveserviceskind) | string | Kind of the Cognitive Services. |
 | [`containerRegistryName`](#parameter-containerregistryname) | string | The Container Registry resource name. |
 | [`enableTelemetry`](#parameter-enabletelemetry) | bool | Enable/Disable usage telemetry for module. |
 | [`location`](#parameter-location) | string | Location for all Resources. |
@@ -448,6 +449,14 @@ Array of deployments about cognitive service accounts to create.
 - Required: No
 - Type: array
 - Default: `[]`
+
+### Parameter: `cognitiveServicesKind`
+
+Kind of the Cognitive Services.
+
+- Required: No
+- Type: string
+- Default: `'OpenAI'`
 
 ### Parameter: `containerRegistryName`
 

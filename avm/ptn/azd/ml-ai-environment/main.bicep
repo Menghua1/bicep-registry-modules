@@ -59,6 +59,9 @@ param searchConnectionName string
 @description('Required. The User Assigned Identity resource name.')
 param userAssignedName string
 
+@description('Optional. Kind of the Cognitive Services.')
+param cognitiveServicesKind string = 'OpenAI'
+
 @description('Optional. The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs, or between 1 and 3 inclusive for basic SKU.')
 @minValue(1)
 @maxValue(12)
@@ -93,6 +96,7 @@ module hubDependencies '../ml-hub-dependencies/main.bicep' = {
     location: location
     tags: tags
     cognitiveServicesName: cognitiveServicesName
+    cognitiveServicesKind: cognitiveServicesKind
     keyVaultName: keyVaultName
     storageAccountName: storageAccountName
     applicationInsightsName: applicationInsightsName

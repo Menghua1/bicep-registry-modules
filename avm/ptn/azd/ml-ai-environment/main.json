@@ -6,7 +6,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.35.1.17967",
-      "templateHash": "1376339960580100508"
+      "templateHash": "13153974241339125940"
     },
     "name": "Azd Azure Machine Learning Environment",
     "description": "Create Azure Machine Learning workspaces of type 'Hub' and 'Project' and their required dependencies.\n\n**Note:** This module is not intended for broad, generic use, as it was designed to cater for the requirements of the AZD CLI product. Feature requests and bug fix requests are welcome if they support the development of the AZD CLI but may not be incorporated if they aim to make this module more generic than what it needs to be for its primary use case."
@@ -117,6 +117,13 @@
         "description": "Required. The User Assigned Identity resource name."
       }
     },
+    "cognitiveServicesKind": {
+      "type": "string",
+      "defaultValue": "OpenAI",
+      "metadata": {
+        "description": "Optional. Kind of the Cognitive Services."
+      }
+    },
     "replicaCount": {
       "type": "int",
       "defaultValue": 1,
@@ -166,6 +173,9 @@
           },
           "cognitiveServicesName": {
             "value": "[parameters('cognitiveServicesName')]"
+          },
+          "cognitiveServicesKind": {
+            "value": "[parameters('cognitiveServicesKind')]"
           },
           "keyVaultName": {
             "value": "[parameters('keyVaultName')]"
