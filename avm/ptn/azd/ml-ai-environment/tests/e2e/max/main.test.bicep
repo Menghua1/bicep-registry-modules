@@ -61,7 +61,7 @@ module testDeployment '../../../main.bicep' = [
           model: {
             name: 'gpt-35-turbo'
             format: 'OpenAI'
-            version: '0613'
+            version: '0125'
           }
           sku: {
             name: 'Standard'

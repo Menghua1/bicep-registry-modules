@@ -209,7 +209,7 @@ module mlAiEnvironment 'br/public:avm/ptn/azd/ml-ai-environment:<version>' = {
         model: {
           format: 'OpenAI'
           name: 'gpt-35-turbo'
-          version: '0613'
+          version: '0125'
         }
         name: 'gpt-35-turbo'
         sku: {
@@ -273,7 +273,7 @@ module mlAiEnvironment 'br/public:avm/ptn/azd/ml-ai-environment:<version>' = {
           "model": {
             "format": "OpenAI",
             "name": "gpt-35-turbo",
-            "version": "0613"
+            "version": "0125"
           },
           "name": "gpt-35-turbo",
           "sku": {
@@ -325,7 +325,7 @@ param cognitiveServicesDeployments = [
     model: {
       format: 'OpenAI'
       name: 'gpt-35-turbo'
-      version: '0613'
+      version: '0125'
     }
     name: 'gpt-35-turbo'
     sku: {
