@@ -49,7 +49,6 @@ module testDeployment '../../../main.bicep' = [
       projectName: '${namePrefix}${serviceShort}pro001'
       userAssignedName: '${namePrefix}${serviceShort}ua001'
       cognitiveServicesName: '${namePrefix}${serviceShort}cs001'
-      openAiConnectionName: '${namePrefix}${serviceShort}ai001-connection'
       searchConnectionName: '${namePrefix}${serviceShort}search001-connection'
     }
   }

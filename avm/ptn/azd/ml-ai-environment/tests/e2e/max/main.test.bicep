@@ -53,7 +53,6 @@ module testDeployment '../../../main.bicep' = [
       applicationInsightsName: '${namePrefix}${serviceShort}appin001'
       logAnalyticsName: '${namePrefix}${serviceShort}la001'
       searchServiceName: '${namePrefix}${serviceShort}search001'
-      openAiConnectionName: '${namePrefix}${serviceShort}ai001-connection'
       searchConnectionName: '${namePrefix}${serviceShort}search001-connection'
       cognitiveServicesDeployments: [
         {

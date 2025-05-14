@@ -98,7 +98,6 @@ module mlAiEnvironment 'br/public:avm/ptn/azd/ml-ai-environment:<version>' = {
     cognitiveServicesName: 'maemincs001'
     hubName: 'maeminhub001'
     keyVaultName: 'maeminkv01'
-    openAiConnectionName: 'maeminai001-connection'
     projectName: 'maeminpro001'
     searchConnectionName: 'maeminsearch001-connection'
     storageAccountName: 'maeminsa001'
@@ -130,9 +129,6 @@ module mlAiEnvironment 'br/public:avm/ptn/azd/ml-ai-environment:<version>' = {
     },
     "keyVaultName": {
       "value": "maeminkv01"
-    },
-    "openAiConnectionName": {
-      "value": "maeminai001-connection"
     },
     "projectName": {
       "value": "maeminpro001"
@@ -168,7 +164,6 @@ using 'br/public:avm/ptn/azd/ml-ai-environment:<version>'
 param cognitiveServicesName = 'maemincs001'
 param hubName = 'maeminhub001'
 param keyVaultName = 'maeminkv01'
-param openAiConnectionName = 'maeminai001-connection'
 param projectName = 'maeminpro001'
 param searchConnectionName = 'maeminsearch001-connection'
 param storageAccountName = 'maeminsa001'
@@ -197,7 +192,6 @@ module mlAiEnvironment 'br/public:avm/ptn/azd/ml-ai-environment:<version>' = {
     cognitiveServicesName: 'maemaxcs001'
     hubName: 'maemaxhub001'
     keyVaultName: 'maemaxkv002'
-    openAiConnectionName: 'maemaxai001-connection'
     projectName: 'maemaxpro001'
     searchConnectionName: 'maemaxsearch001-connection'
     storageAccountName: 'maemaxsta001'
@@ -247,9 +241,6 @@ module mlAiEnvironment 'br/public:avm/ptn/azd/ml-ai-environment:<version>' = {
     },
     "keyVaultName": {
       "value": "maemaxkv002"
-    },
-    "openAiConnectionName": {
-      "value": "maemaxai001-connection"
     },
     "projectName": {
       "value": "maemaxpro001"
@@ -313,7 +304,6 @@ using 'br/public:avm/ptn/azd/ml-ai-environment:<version>'
 param cognitiveServicesName = 'maemaxcs001'
 param hubName = 'maemaxhub001'
 param keyVaultName = 'maemaxkv002'
-param openAiConnectionName = 'maemaxai001-connection'
 param projectName = 'maemaxpro001'
 param searchConnectionName = 'maemaxsearch001-connection'
 param storageAccountName = 'maemaxsta001'
@@ -352,7 +342,6 @@ param searchServiceName = 'maemaxsearch001'
 | [`cognitiveServicesName`](#parameter-cognitiveservicesname) | string | The Cognitive Services name. |
 | [`hubName`](#parameter-hubname) | string | The AI Studio Hub Resource name. |
 | [`keyVaultName`](#parameter-keyvaultname) | string | The Key Vault resource name. |
-| [`openAiConnectionName`](#parameter-openaiconnectionname) | string | The Open AI connection name. |
 | [`projectName`](#parameter-projectname) | string | The AI Project resource name. |
 | [`searchConnectionName`](#parameter-searchconnectionname) | string | The Azure Search connection name. |
 | [`storageAccountName`](#parameter-storageaccountname) | string | The Storage Account resource name. |
@@ -395,13 +384,6 @@ The AI Studio Hub Resource name.
 ### Parameter: `keyVaultName`
 
 The Key Vault resource name.
-
-- Required: Yes
-- Type: string
-
-### Parameter: `openAiConnectionName`
-
-The Open AI connection name.
 
 - Required: Yes
 - Type: string

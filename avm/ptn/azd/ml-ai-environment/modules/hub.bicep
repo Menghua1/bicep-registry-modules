@@ -22,9 +22,6 @@ param aiSearchName string = ''
 @description('Required. The Azure Cognitive Search service connection name to use for the AI Studio Hub Resource.')
 param aiSearchConnectionName string
 
-@description('Required. The OpenAI Content Safety connection name to use for the AI Studio Hub Resource.')
-param openAiContentSafetyConnectionName string
-
 @description('Optional. The SKU name to use for the AI Studio Hub Resource.')
 @allowed(['Basic', 'Free', 'Premium', 'Standard'])
 param skuName string = 'Basic'
@@ -63,23 +60,6 @@ var connections = [
       ResourceId: openAi.id
     }
     target: openAi.properties.endpoints['OpenAI Language Model Instance API']
-    connectionProperties: {
-      authType: 'ApiKey'
-      credentials: {
-        key: openAi.listKeys().key1
-      }
-    }
-  }
-  {
-    name: openAiContentSafetyConnectionName
-    category: 'AzureOpenAI'
-    isSharedToAll: true
-    target: openAi.properties.endpoints['Content Safety']
-    metadata: {
-      ApiVersion: '2023-07-01-preview'
-      ApiType: 'azure'
-      ResourceId: openAi.id
-    }
     connectionProperties: {
       authType: 'ApiKey'
       credentials: {

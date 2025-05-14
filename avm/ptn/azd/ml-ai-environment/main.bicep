@@ -50,9 +50,6 @@ param cognitiveServicesDeployments array = []
 @description('Condition. The Azure Search resource name. Required if the parameter searchServiceName is not empty.')
 param searchServiceName string = ''
 
-@description('Required. The Open AI connection name.')
-param openAiConnectionName string
-
 @description('Required. The Azure Search connection name.')
 param searchConnectionName string
 
@@ -122,7 +119,6 @@ module hub './modules/hub.bicep' = {
     openAiName: hubDependencies.outputs.cognitiveServicesName
     aiSearchName: hubDependencies.outputs.searchServiceName
     aiSearchConnectionName: searchConnectionName
-    openAiContentSafetyConnectionName: openAiConnectionName
   }
 }
 

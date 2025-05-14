@@ -6,7 +6,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.35.1.17967",
-      "templateHash": "13153974241339125940"
+      "templateHash": "8433292217033186040"
     },
     "name": "Azd Azure Machine Learning Environment",
     "description": "Create Azure Machine Learning workspaces of type 'Hub' and 'Project' and their required dependencies.\n\n**Note:** This module is not intended for broad, generic use, as it was designed to cater for the requirements of the AZD CLI product. Feature requests and bug fix requests are welcome if they support the development of the AZD CLI but may not be incorporated if they aim to make this module more generic than what it needs to be for its primary use case."
@@ -97,12 +97,6 @@
       "defaultValue": "",
       "metadata": {
         "description": "Condition. The Azure Search resource name. Required if the parameter searchServiceName is not empty."
-      }
-    },
-    "openAiConnectionName": {
-      "type": "string",
-      "metadata": {
-        "description": "Required. The Open AI connection name."
       }
     },
     "searchConnectionName": {
@@ -22735,9 +22729,6 @@
           },
           "aiSearchConnectionName": {
             "value": "[parameters('searchConnectionName')]"
-          },
-          "openAiContentSafetyConnectionName": {
-            "value": "[parameters('openAiConnectionName')]"
           }
         },
         "template": {
@@ -22747,7 +22738,7 @@
             "_generator": {
               "name": "bicep",
               "version": "0.35.1.17967",
-              "templateHash": "6872055084136778573"
+              "templateHash": "7938292111177331670"
             }
           },
           "parameters": {
@@ -22800,12 +22791,6 @@
               "type": "string",
               "metadata": {
                 "description": "Required. The Azure Cognitive Search service connection name to use for the AI Studio Hub Resource."
-              }
-            },
-            "openAiContentSafetyConnectionName": {
-              "type": "string",
-              "metadata": {
-                "description": "Required. The OpenAI Content Safety connection name to use for the AI Studio Hub Resource."
               }
             },
             "skuName": {
@@ -22896,7 +22881,7 @@
                     "value": "[format('https://{0}.api.azureml.ms/discovery', parameters('location'))]"
                   },
                   "connections": {
-                    "value": "[union(createArray(createObject('name', 'aoai-connection', 'category', 'AzureOpenAI', 'isSharedToAll', true(), 'metadata', createObject('ApiVersion', '2024-02-01', 'ApiType', 'azure', 'ResourceId', resourceId('Microsoft.CognitiveServices/accounts', parameters('openAiName'))), 'target', reference(resourceId('Microsoft.CognitiveServices/accounts', parameters('openAiName')), '2023-05-01').endpoints['OpenAI Language Model Instance API'], 'connectionProperties', createObject('authType', 'ApiKey', 'credentials', createObject('key', listKeys(resourceId('Microsoft.CognitiveServices/accounts', parameters('openAiName')), '2023-05-01').key1))), createObject('name', parameters('openAiContentSafetyConnectionName'), 'category', 'AzureOpenAI', 'isSharedToAll', true(), 'target', reference(resourceId('Microsoft.CognitiveServices/accounts', parameters('openAiName')), '2023-05-01').endpoints['Content Safety'], 'metadata', createObject('ApiVersion', '2023-07-01-preview', 'ApiType', 'azure', 'ResourceId', resourceId('Microsoft.CognitiveServices/accounts', parameters('openAiName'))), 'connectionProperties', createObject('authType', 'ApiKey', 'credentials', createObject('key', listKeys(resourceId('Microsoft.CognitiveServices/accounts', parameters('openAiName')), '2023-05-01').key1)))), if(not(empty(parameters('aiSearchName'))), createArray(createObject('name', parameters('aiSearchConnectionName'), 'category', 'CognitiveSearch', 'isSharedToAll', true(), 'target', format('https://{0}.search.windows.net/', parameters('aiSearchName')), 'connectionProperties', createObject('authType', 'ApiKey', 'credentials', createObject('key', if(not(empty(parameters('aiSearchName'))), listAdminKeys(resourceId('Microsoft.Search/searchServices', parameters('aiSearchName')), '2021-04-01-preview').primaryKey, ''))))), createArray()))]"
+                    "value": "[union(createArray(createObject('name', 'aoai-connection', 'category', 'AzureOpenAI', 'isSharedToAll', true(), 'metadata', createObject('ApiVersion', '2024-02-01', 'ApiType', 'azure', 'ResourceId', resourceId('Microsoft.CognitiveServices/accounts', parameters('openAiName'))), 'target', reference(resourceId('Microsoft.CognitiveServices/accounts', parameters('openAiName')), '2023-05-01').endpoints['OpenAI Language Model Instance API'], 'connectionProperties', createObject('authType', 'ApiKey', 'credentials', createObject('key', listKeys(resourceId('Microsoft.CognitiveServices/accounts', parameters('openAiName')), '2023-05-01').key1)))), if(not(empty(parameters('aiSearchName'))), createArray(createObject('name', parameters('aiSearchConnectionName'), 'category', 'CognitiveSearch', 'isSharedToAll', true(), 'target', format('https://{0}.search.windows.net/', parameters('aiSearchName')), 'connectionProperties', createObject('authType', 'ApiKey', 'credentials', createObject('key', if(not(empty(parameters('aiSearchName'))), listAdminKeys(resourceId('Microsoft.Search/searchServices', parameters('aiSearchName')), '2021-04-01-preview').primaryKey, ''))))), createArray()))]"
                   }
                 },
                 "template": {
